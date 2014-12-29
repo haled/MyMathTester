@@ -1,4 +1,4 @@
-MyMathTracker
-=============
+MyMathTester
+============
 
-A Google extension to test basic math skills.
+A Google extension to drill basic math skills.
