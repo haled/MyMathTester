@@ -1,24 +1,25 @@
-<html>
-  <body id="tester">
+<html ng-app="mathTester">
+  <body id="tester" ng-controller="MathTesterController">
     <div id="title" style="color: blue;">My Math Tester</div>
     <table border=0 style="size: 12pt;">
     <tr>
-    <td>&nbsp;</td><td><div id="operand1"></div></td>
+    <td>&nbsp;</td><td><div id="operand1">{{operand1}}</div></td>
     </tr>
     <tr style="border-bottom-width: 2px;">
-    <td><div id="operator">+</div></td><td><div id="operand2"></div></td>
+    <td><div id="operator">{{operator}}</div></td><td><div id="operand2">{{operand2}}</div></td>
     </tr>
     <tr>
-    <td colspan=2><input type="text" id="answer" value="" size=2 /></td>
+    <td colspan=2><input type="text" id="answer" ng-model="answer" size=2 /></td>
     </tr>
     <tr>
-    <td colspan=2><input type="button" id="submit" value="Submit"/></td>
+    <td colspan=2><input type="button" id="submit" value="Submit" ng-click="setResult()"/></td>
     </tr>
     <tr>
-    <td colspan=2><div id="result">Pending</div></td>
+    <td colspan=2><div id="result">{{result}}</div></td>
     </tr>
     </table>
   </body>
 
-  <script src="popup.js"></script>
+  <script src="js/angular.js"></script>
+  <script src="js/math_tester_controller.js"></script>
 </html>
