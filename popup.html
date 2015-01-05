@@ -1,7 +1,22 @@
 <html ng-app="mathTester">
   <body id="tester" ng-controller="MathTesterController">
     <div id="title" style="color: blue;">My Math Tester</div>
-    <table border=0 style="size: 12pt;">
+    <div id="problem-type">
+      <table border="0">
+      <tr>
+        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Addition')" value="Addition" /></td>
+        <!--td align="left"><input type="radio" name="problemType" ng-model="problem" value="Subtraction"/></td-->
+        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Multiplication')" value="Multiplication"/></td>
+        <!--td align="left"><input type="radio" name="problemType" ng-model="problem" value="Division"/></td-->
+      </tr>
+      <tr>
+        <td align="left"><label>Addition</label></td>
+        <!--td align="left"><label>Subtraction</label></td-->
+        <td align="left"><label>Multiplication</label></td>
+        <!--td align="left"><label>Division</label></td-->
+      </tr>
+    </div>
+    <table border="0">
     <tr>
     <td>&nbsp;</td><td><div id="operand1">{{operand1}}</div></td>
     </tr>
@@ -9,13 +24,13 @@
     <td><div id="operator">{{operator}}</div></td><td><div id="operand2">{{operand2}}</div></td>
     </tr>
     <tr>
-    <td colspan=2><input type="text" id="answer" ng-model="answer" size=2 /></td>
+    <td colspan="2"><input type="text" id="answer" ng-model="answer" size="2" /></td>
     </tr>
     <tr>
-    <td colspan=2><input type="button" id="submit" value="Submit" ng-click="setResult()"/></td>
+    <td colspan="2"><input type="button" id="submit" value="Submit" ng-click="setResult()"/></td>
     </tr>
     <tr>
-    <td colspan=2><div id="result">{{result}}</div></td>
+    <td colspan="2"><div id="result">{{result}}</div></td>
     </tr>
     </table>
   </body>
