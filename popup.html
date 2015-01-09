@@ -5,13 +5,13 @@
       <table border="0">
       <tr>
         <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Addition')" value="Addition" /></td>
-        <!--td align="left"><input type="radio" name="problemType" ng-model="problem" value="Subtraction"/></td-->
+        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Subtraction')" value="Subtraction"/></td>
         <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Multiplication')" value="Multiplication"/></td>
         <!--td align="left"><input type="radio" name="problemType" ng-model="problem" value="Division"/></td-->
       </tr>
       <tr>
         <td align="left"><label>Addition</label></td>
-        <!--td align="left"><label>Subtraction</label></td-->
+        <td align="left"><label>Subtraction</label></td>
         <td align="left"><label>Multiplication</label></td>
         <!--td align="left"><label>Division</label></td-->
       </tr>
@@ -33,6 +33,8 @@
     <td colspan="2"><div id="result">{{result}}</div></td>
     </tr>
     </table>
+    <br>
+    <div id="debug-area">{{debugMessage}}</div>
   </body>
 
   <script src="js/angular.js"></script>
