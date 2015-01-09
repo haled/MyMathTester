@@ -4,8 +4,10 @@ mathTester.controller('MathTesterController', function ($scope) {
   
   $scope.problem = 'Addition';
 
-  setOperands($scope, $scope.problem);
-  $scope.operator = setOperatorDisplay($scope.problem);
+  var mathProblem = setOperands($scope.problem);
+  $scope.operand1 = mathProblem.operand1;
+  $scope.operand2 = mathProblem.operand2;
+  $scope.operator = mathProblem.operator;
 
   $scope.setResult = function() {
     if($scope.problem == 'Addition') {
@@ -19,13 +21,17 @@ mathTester.controller('MathTesterController', function ($scope) {
     }
     $scope.answer = "";
     
-    setOperands($scope, $scope.problem);
-    $scope.operator = setOperatorDisplay($scope.problem);
+    var mathProblem = setOperands($scope.problem);
+    $scope.operand1 = mathProblem.operand1;
+    $scope.operand2 = mathProblem.operand2;
+    $scope.operator = mathProblem.operator;
   }
 
   $scope.setProblemType = function(probType) {
-    setOperands($scope, $scope.problem);
-    $scope.operator = setOperatorDisplay(probType);
+    var mathProblem = setOperands($scope.problem);
+    $scope.operand1 = mathProblem.operand1;
+    $scope.operand2 = mathProblem.operand2;
+    $scope.operator = mathProblem.operator;
   }
 });
 
@@ -53,31 +59,32 @@ function checkSubtraction(operand1, operand2, answer) {
   return response;
 }
 
-function setOperatorDisplay(probType) {
-  var op = "+";
+function setOperands(probType) {
+  var op1;
+  var op2;
+  var operation = '+';
+
   if(probType == 'Addition') {
-    op = "+";
+    op1 = getRandomSingleDigitNumber();
+    op2 = getRandomSingleDigitNumber();
+    operation = '+';
   }
   else if(probType == 'Multiplication') {
-    op = "X";
+    op1 = getRandomSingleDigitNumber();
+    op2 = getRandomSingleDigitNumber();
+    operation = 'X';
   }
   else if(probType == 'Subtraction') {
-    op = "-";
+    op1 = getRandomSingleDigitNumber();
+    op2 = getRandomSingleDigitNumber();
+    operation = '-';
   }
-  return op;
-}
-
-function setOperands($scope, probType) {
-  //var fullProblem;
-  if(probType == 'Addition' || probType == 'Multiplication') {
-    $scope.operand1 = getRandomSingleDigitNumber();
-    $scope.operand2 = getRandomSingleDigitNumber();
-  }
-  else if(probType == 'Subtraction') {
-    $scope.operand1 = getRandomSingleDigitNumber();
-    $scope.operand2 = getRandomSingleDigitNumber();
-  }
-  //return fullProblem;
+  
+  return {
+    operand1: op1,
+    operand2: op2,
+    operator: operation
+  };
 }
 
 function getRandomSingleDigitNumber() {
