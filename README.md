@@ -13,4 +13,5 @@ To Do
   1. Division
 1. Add unit testing.
 1. Convert the program from a Google extension to a Google app.
+1. Provide problems horizontally and vertically.
 

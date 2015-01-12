@@ -22,6 +22,14 @@ function checkSubtraction(operand1, operand2, answer) {
   return response;
 }
 
+function checkDivision(operand1, operand2, answer) {
+  var response = "FAIL!";
+  if(answer == (operand1 / operand2)) {
+    response = "Success!";
+  }
+  return response;
+}
+
 function setOperands(probType) {
   var op1;
   var op2;
@@ -44,6 +52,12 @@ function setOperands(probType) {
       op2 = getRandomSingleDigitNumber();
     }
     operation = '-';
+  }
+  else if(probType == 'Division') {
+    op2 = getRandomSingleDigitNumber();
+    opx = getRandomSingleDigitNumber();
+    op1 = op2 * opx;
+    operation = '/';
   }
   
   return {

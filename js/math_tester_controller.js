@@ -17,6 +17,9 @@ mathTester.controller('MathTesterController', function ($scope) {
     else if($scope.problem == 'Subtraction') {
       $scope.result = checkSubtraction($scope.mathProblem.operand1, $scope.mathProblem.operand2, $scope.answer);
     }
+    else if($scope.problem == 'Division') {
+      $scope.result = checkDivision($scope.mathProblem.operand1, $scope.mathProblem.operand2, $scope.answer);
+    }
     $scope.answer = "";
     
     var mathProblem = setOperands($scope.problem);
