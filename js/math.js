@@ -40,13 +40,18 @@ function setOperands(probType) {
   else if(probType == 'Subtraction') {
     op1 = getRandomSingleDigitNumber();
     op2 = getRandomSingleDigitNumber();
+    while(op2 > op1) {
+      op2 = getRandomSingleDigitNumber();
+    }
     operation = '-';
   }
   
   return {
     operand1: op1,
     operand2: op2,
-    operator: operation
+    operator: operation,
+    answer: '',
+    problemType: ''
   };
 }
 
