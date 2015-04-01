@@ -1,41 +1,68 @@
 <html ng-app="mathTester">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </head>
+
   <body id="tester" ng-controller="MathTesterController">
-    <div id="title" style="color: blue;">My Math Tester</div>
-    <div id="problem-type">
-      <table border="0">
-      <tr>
-        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Addition')" value="Addition" /></td>
-        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Subtraction')" value="Subtraction"/></td>
-        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Multiplication')" value="Multiplication"/></td>
-        <td align="left"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Division')" value="Division"/></td>
-      </tr>
-      <tr>
-        <td align="left"><label>Addition</label></td>
-        <td align="left"><label>Subtraction</label></td>
-        <td align="left"><label>Multiplication</label></td>
-        <td align="left"><label>Division</label></td>
-      </tr>
-    </div>
-    <table border="0">
-    <tr>
-    <td>&nbsp;</td><td><div id="operand1">{{mathProblem.operand1}}</div></td>
-    </tr>
-    <tr style="border-bottom-width: 2px;">
-    <td><div id="operator">{{mathProblem.operator}}</div></td><td><div id="operand2">{{mathProblem.operand2}}</div></td>
-    </tr>
-    <tr>
-    <td colspan="2"><input type="text" id="answer" ng-model="answer" size="2" /></td>
-    </tr>
-    <tr>
-    <td colspan="2"><input type="button" id="submit" value="Submit" ng-click="setResult()"/></td>
-    </tr>
-    <tr>
-    <td colspan="2"><div id="result">{{result}}</div></td>
-    </tr>
-    </table>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>My Math Tester</h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12"><div class="radio">
+          <label class="radio-inline"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Addition')" value="Addition" />Addition</label>
+          <label class="radio-inline"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Subtraction')" value="Subtraction"/>Subtraction</label>
+          <label class="radio-inline"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Multiplication')" value="Multiplication"/>Multiplication</label>
+          <label class="radio-inline"><input type="radio" name="problemType" ng-model="problem" ng-change="setProblemType('Division')" value="Division"/>Division</label>
+        </div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-1">
+          &nbsp;
+        </div>
+        <div class="col-xs-1">
+          <div id="operand1" class="operand" style="font-size: 26px;">{{mathProblem.operand1}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-1">
+          <div class="text-right" id="operator" class="operand" style="font-size: 26px;">{{mathProblem.operator}}</div>
+        </div>
+        <div class="col-xs-1">
+          <div id="operand2" class="operand" style="font-size: 26px;">{{mathProblem.operand2}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-1">
+          &nbsp;
+        </div>
+        <div class="col-xs-1">
+          <input type="text" id="answer" ng-model="answer" size="2" class="operand" style="font-size: 26px;"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-1">
+          &nbsp;
+        </div>
+        <div class="col-xs-1">
+          <input type="button" id="submit" value="Submit" ng-click="setResult()"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-1" id="result">{{result}}</div>
+      </div>
     <br>
-    <div id="debug-area">{{debugMessage}}</div>
-    <div>{{8 / 2}}</div>
+    <div class="row" id="debug-area">
+      <div class="col-xs-1">{{debugMessage}}</div>
+    </div>
+    </div>
   </body>
 
   <script src="js/angular.js"></script>
